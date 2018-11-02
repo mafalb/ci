@@ -1,5 +1,5 @@
 ---
 - hosts: localhost
   roles:
-    - ansible_ci/requirements
-    - ansible_ci
+    - ansible_CI/requirements
+    - ansible_CI
