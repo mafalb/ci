@@ -1,29 +1,6 @@
 # vi: set ft=yaml ts=2:
 ---
 
-- block:
-    - name: print out environment variables
-      check_mode: false
-      command: env
-    - name: get the list of preinstalled packages
-      check_mode: false
-      command: dpkg -l
-    - name: get the list of installed python packages
-      check_mode: false
-      command: pip list
-    - name: get the docker version
-      check_mode: false
-      command: docker version
-
 - name: install requirements
   check_mode: false
   command: ansible-galaxy install -r {{ role_path }}/requirements.yml -p /etc/ansible/roles
-
-- include_role:
-    name: ansible/control_machine
-- include_role:
-    name: ansible/node
-- include_role:
-    name: docker/daemon
-- include_role:
-    name: docker/ansible
