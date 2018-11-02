@@ -10,7 +10,8 @@ install:
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
 script:
   - ansible-playbook --become -D tests/init.yml    -t all,debug
-  - ansible-playbook --become -D tests/pre_install.yml    -t all,debug
+  - ansible-playbook --become -D tests/pre_install-stage1.yml    -t all,debug
+  - ansible-playbook --become -D tests/pre_install-stage2.yml    -t all,debug
 after_script:
   - docker version
   - ls -lR /etc/ansible
