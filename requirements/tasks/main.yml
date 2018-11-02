@@ -4,4 +4,4 @@
 - name: write requirements.yml
   template:
     src: requirements.yml
-    dest: "{{ role_dir }}/requirements.yml"
+    dest: "{{ role_path }}/requirements.yml"
