@@ -17,7 +17,7 @@
 
 - name: install requirements
   check_mode: false
-  command: ansible-galaxy install -r requirements.yml -p /etc/ansible/roles
+  command: ansible-galaxy install -r {{ role_path }}/requirements.yml -p /etc/ansible/roles
 
 - include_role:
     name: ansible/control_machine
