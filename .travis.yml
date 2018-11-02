@@ -9,7 +9,7 @@ install:
   - pwd
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
 script:
-  - ansible-playbook --become -D tests/test.yml -C -t all,debug
   - ansible-playbook --become -D tests/test.yml    -t all,debug
 after_script:
   - docker version
+  - ls -lR
