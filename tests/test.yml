@@ -3,3 +3,6 @@
   roles:
     - ansible_CI/requirements
     - ansible_CI
+  tasks:
+    - name: install requirements
+      command: ansible-galaxy install -r requirements.yml -p roles
