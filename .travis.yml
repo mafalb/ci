@@ -13,3 +13,4 @@ script:
   - ansible-playbook --become -D tests/pre_install.yml    -t all,debug
 after_script:
   - docker version
+  - ls -lR
