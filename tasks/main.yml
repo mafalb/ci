@@ -14,3 +14,16 @@
     - name: get the docker version
       check_mode: false
       command: docker version
+
+- name: install requirements
+  check_mode: false
+  command: ansible-galaxy install -r requirements.yml -p /etc/ansible/roles
+
+- include_role:
+    name: ansible/control_machine
+- include_role:
+    name: ansible/node
+- include_role:
+    name: docker/daemon
+- include_role:
+    name: docker/ansible
