@@ -3,11 +3,14 @@
 
 - block:
     - name: print out environment variables
+      check_mode: false
       command: env
     - name: get the list of preinstalled packages
+      check_mode: false
       command: dpkg -l
     - name: get the list of installed python packages
+      check_mode: false
       command: pip list
     - name: get the docker version
+      check_mode: false
       command: docker version
-  check_mode: false
