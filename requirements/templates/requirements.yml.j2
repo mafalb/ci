@@ -5,4 +5,8 @@
   src: https://github.com/mafalb/ansible-ansible
   version: origin/{{ ansible_env.TRAVIS_BRANCH|default('master') }}
 
+- name: docker
+  src: https://github.com/mafalb/ansible-docker
+  version: origin/{{ ansible_env.TRAVIS_BRANCH|default('master') }}
+
 ...
