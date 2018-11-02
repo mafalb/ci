@@ -1,0 +1,14 @@
+---
+sudo: required
+dist: xenial
+language: minimal
+before_install:
+  - sudo apt-get install ansible && sudo mkdir -p /etc/ansible/roles
+install:
+  - pwd
+  - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
+script:
+  - ansible-playbook --become -D tests/test.yml -C -t all,debug
+  - ansible-playbook --become -D tests/test.yml    -t all,debug
+after_script:
+  - docker version

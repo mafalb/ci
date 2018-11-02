@@ -1,0 +1,8 @@
+# vi: set ft=yaml ts=2:
+---
+
+- name: ansible
+  src: https://github.com/mafalb/ansible-ansible
+  version: origin/{{ ansible_env.TRAVIS_BRANCH|default('master') }}
+
+...

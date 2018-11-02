@@ -1,0 +1,13 @@
+# vi: set ft=yaml ts=2:
+---
+
+- block:
+    - name: print out environment variables
+      command: env
+    - name: get the list of preinstalled packages
+      command: dpkg -l
+    - name: get the list of installed python packages
+      command: pip list
+    - name: get the docker version
+      command: docker version
+  check_mode: false

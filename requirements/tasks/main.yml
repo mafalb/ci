@@ -1,0 +1,7 @@
+# vi: set ft=yaml ts=2:
+---
+
+- name: write requirements.yml
+  template:
+    src: requirements.yml
+    dest: "{{ role_dir }}/requirements.yml"
