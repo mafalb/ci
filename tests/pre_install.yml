@@ -3,7 +3,6 @@
 
 - hosts: localhost
   roles:
-    - role: ansible/control_machine
     - role: ansible/node
     - role: docker/daemon
     - role: docker/ansible
