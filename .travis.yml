@@ -15,3 +15,4 @@ script:
   - ansible-playbook -D -t all,debug tests/test.yml
 after_script:
   - ls -lR tests/
+  - cat tests/test.yml
