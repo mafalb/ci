@@ -13,3 +13,5 @@ install:
   - ansible-playbook -b -D -t all,debug install.yml
 script:
   - ansible-playbook -D -t all,debug tests/test.yml
+after_script:
+  - ls -lR tests/
