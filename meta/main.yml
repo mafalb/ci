@@ -2,7 +2,7 @@
 ---
 
 galaxy_info:
-  role_name: ansible_CI
+  role_name: ansible_ci
   author: Markus Falb
   description: An ansible role to set up for ansible role CI
 
@@ -51,12 +51,6 @@ galaxy_info:
     - travis
 
 dependencies:
-  - name: mafalb.ansible
-    src: https://github.com/mafalb/ansible-ansible
-    version: dev
-
-  - name: mafalb.docker
-    src: https://github.com/mafalb/ansible-docker
-    version: dev
+  - name: mafalb.ansible_ci/requirements
   
 ...
