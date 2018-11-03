@@ -8,8 +8,8 @@ before_install:
   - dpkg -l
   - export ANSIBLE_CI_BRANCH=$TRAVIS_BRANCH
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
-  - ansible-playbook -b -D before_install.yml -t all,debug
+  - ansible-playbook -b -D -t all,debug before_install.yml
 install:
-  - ansible-playbook -b -D install.yml -t all,debug
+  - ansible-playbook -b -D -t all,debug install.yml
 script:
-  - ansible-playbook -D tests/test.yml    -t all,debug
+  - ansible-playbook -D -t all,debug tests/test.yml
