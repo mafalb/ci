@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get install ansible
   - dpkg -l
   - export ANSIBLE_CI_BRANCH=$TRAVIS_BRANCH
-  - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_ci
+  - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/mafalb.ansible_ci
   - ls -lR /etc/ansible/roles
   - ansible-playbook -b -D -t all,debug before_install.yml
 install:
