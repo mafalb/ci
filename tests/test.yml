@@ -1,6 +1,4 @@
 ---
 - hosts: localhost
-  roles:
-    - role: ansible_dockerfiles
   tasks:
     - debug: var=ansible_dockerfiles.centos7.path
