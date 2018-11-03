@@ -51,11 +51,11 @@ galaxy_info:
     - travis
 
 dependencies:
-  - name: ansible
+  - name: mafalb.ansible
     src: https://github.com/mafalb/ansible-ansible
     version: dev
 
-  - name: docker
+  - name: mafalb.docker
     src: https://github.com/mafalb/ansible-docker
     version: dev
   
