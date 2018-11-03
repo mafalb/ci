@@ -10,5 +10,6 @@ before_install:
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
   - ansible-playbook -b -D before_install.yml -t all,debug
 install:
+  - ansible-playbook -b -D install.yml -t all,debug
 script:
   - ansible-playbook -D tests/test.yml    -t all,debug

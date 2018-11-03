@@ -5,16 +5,5 @@
   roles:
     - role: ansible_CI/requirements
     - role: ansible_CI
-    - role: ansible/control_machine
-    - role: ansible/node
-    - role: docker/daemon
-    - role: docker/ansible
-  tasks:
-    - name: get the docker version
-      check_mode: false
-      command: docker version
-      register: _docker
-    - debug: var=ansible_env
-    - debug: var=_dpkg
-    - debug: var=_docker
 
+...
