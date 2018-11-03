@@ -3,10 +3,10 @@
 
 - name: ansible
   src: https://github.com/mafalb/ansible-ansible
-  version: origin/{{ ansible_env.TRAVIS_BRANCH|default('master') }}
+  version: origin/{{ ansible_env.ANSIBLE_CI_BRANCH == 'master'|ternary('master','dev') }}
 
 - name: docker
   src: https://github.com/mafalb/ansible-docker
-  version: origin/{{ ansible_env.TRAVIS_BRANCH|default('master') }}
+  version: origin/{{ ansible_env.ANSIBLE_CI_BRANCH == 'master'|ternary('master','dev') }}
 
 ...

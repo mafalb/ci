@@ -5,13 +5,10 @@ language: minimal
 before_install:
   - sudo apt-add-repository --yes ppa:ansible/ansible-2.7 && sudo apt-get update
   - sudo apt-get install ansible
-install:
-  - pwd
+  - dpkg -l
+  - export ANSIBLE_CI_BRANCH=$TRAVIS_BRANCH
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible_CI
+  - ansible-playbook -b -D pre_install.yml -t all,debug
+install:
 script:
-  - ansible-playbook --become -D tests/init.yml    -t all,debug
-  - ansible-playbook --become -D tests/pre_install-stage1.yml    -t all,debug
-  - ansible-playbook --become -D tests/pre_install-stage2.yml    -t all,debug
-after_script:
-  - docker version
-  - ls -lR /etc/ansible
+  - ansible-playbook -D tests/test.yml    -t all,debug

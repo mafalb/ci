@@ -3,14 +3,13 @@
 
 - hosts: localhost
   roles:
+    - role: ansible_CI/requirements
+    - role: ansible_CI
+    - role: ansible/control_machine
     - role: ansible/node
     - role: docker/daemon
     - role: docker/ansible
   tasks:
-    - name: get the list of preinstalled packages
-      check_mode: false
-      command: dpkg -l
-      register: _dpkg
     - name: get the docker version
       check_mode: false
       command: docker version

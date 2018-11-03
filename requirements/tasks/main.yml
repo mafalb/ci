@@ -1,6 +1,11 @@
 # vi: set ft=yaml ts=2:
 ---
 
+- name: assertions
+  assert:
+    that:
+      - ansible_env.ANSIBLE_CI_BRANCH is defined
+
 - name: write requirements.yml
   template:
     src: requirements.yml.j2
