@@ -6,7 +6,12 @@
     that:
       - ansible_env.ANSIBLE_CI_BRANCH is defined
 
-- name: write requirements.yml
+- name: write requirements.yml for ansible_CI
   template:
     src: requirements.yml.j2
     dest: "{{ role_path }}/../requirements.yml"
+
+- name: write requirements.yml for ansible_CI
+  template:
+    src: requirements-tests.yml.j2
+    dest: "{{ role_path }}/../tests/requirements.yml"

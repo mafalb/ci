@@ -10,3 +10,7 @@
 - name: install requirements
   check_mode: false
   command: ansible-galaxy install -r {{ role_path }}/requirements.yml -p /etc/ansible/roles
+
+- name: install requirements
+  check_mode: false
+  command: ansible-galaxy install -r {{ role_path }}/tests/requirements.yml -p tests/roles

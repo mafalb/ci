@@ -1,3 +1,4 @@
 ---
 - hosts: localhost
-  tasks: []
+  tasks:
+    - debug: var=ansible_dockerfiles.centos7.path
