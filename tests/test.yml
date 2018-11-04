@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   tasks:
+    - debug: var=ansible_env
     - name: docker image for centos7 does exist
       docker_image:
         path: /tmp
