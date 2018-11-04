@@ -6,5 +6,5 @@
       docker_image:
         path: /tmp
         name: centos7
-        dockerfile: files/centos7
+        dockerfile: "../files/centos7"
         state: present
