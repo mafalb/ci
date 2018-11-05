@@ -6,7 +6,7 @@
 ```
 - hosts: localhost
   roles:
-    - role: ansible_CI
+    - role: ansible_ci
 ```
 
 ## License
