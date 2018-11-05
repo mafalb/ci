@@ -1,0 +1,25 @@
+# vim: set ft=yaml ts=2:
+---
+
+- name: debug environment
+  debug: var=ansible_env
+  tags:
+  - never
+  - debug
+
+- name: docker image for centos7 does exist
+  docker_image:
+    name: centos7
+    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
+    state: present
+
+- name: get package_facts
+  check_mode: false
+  package_facts:
+
+- name: assert that the correct docker package is installed on travis-CI
+  assert:
+    that:
+    - ansible_facts.packages['docker-ce'] is defined
+  when:
+  - ansible_env.TRAVIS
