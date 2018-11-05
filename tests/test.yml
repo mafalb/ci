@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  roles:
+    - role: mafalb.ansible_ci/tests
