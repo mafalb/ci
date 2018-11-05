@@ -13,6 +13,6 @@ before_install:
 install:
   - ansible-playbook -b -D -t all,debug install.yml
 script:
-  - ansible localhost -D -t all,debug -m include_role -a "name=ansible_ci/tests"
+  - ansible localhost -D -t all,debug -m include_role -a "name=mafalb.ansible_ci/tests"
 after_script:
   - ls -lR tests/
