@@ -2,6 +2,8 @@
 ---
 
 - hosts: localhost
+  vars:
+    - docker_assume_already_installed: true
   roles:
     - role: mafalb.ansible/control_machine
     - role: mafalb.ansible/node
