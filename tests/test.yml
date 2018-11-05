@@ -4,7 +4,6 @@
     - debug: var=ansible_env
     - name: docker image for centos7 does exist
       docker_image:
-        path: /tmp
         name: centos7
-        dockerfile: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
+        path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
         state: present
