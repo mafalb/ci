@@ -41,6 +41,7 @@
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
 
 - name: add containers to inventory
+  with_items: "{{ targeted_distributions }}"
   add_host:
     groups: testnodes
     name: "{{ item.container }}"
