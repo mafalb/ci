@@ -34,6 +34,7 @@
     state: present
 
 - name: docker container for centos7 is running
+  with_items: "{{ targeted_distributions }}"
   docker_container:
     name: "{{ item.container }}"
     image: "{{ item.image }}"
