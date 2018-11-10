@@ -23,11 +23,14 @@
     that:
     - not _docker_package.changed
 
+- debug: msg="{{ item.image }} || {{ item.container }} || {{ item.src }}"
+  with_items: targeted_distributions
+
 - name: docker image for centos7 does exist
   with_items: targeted_distributions
   docker_image:
     name: "{{ item.image }}"
-    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/{{ item.src }}"
+    path: "{{ ansible_env.TRAVIS_BUILD_DIR + '/files/' + item.src }}"
     state: present
 
 - name: docker container for centos7 is running
