@@ -24,15 +24,16 @@
     - not _docker_package.changed
 
 - name: docker image for centos7 does exist
+  with_items: targeted_distributions
   docker_image:
-    name: local/centos7
-    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
+    name: "{{ item.image }}
+    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/{{ item.path }}"
     state: present
 
 - name: docker container for centos7 is running
   docker_container:
-    name: centos7
-    image: local/centos7
+    name: "{{ item.container }}"
+    image: "{{ item.image }}"
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
 
 - name: docker ps
