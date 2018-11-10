@@ -34,3 +34,12 @@
     name: centos7
     image: local/centos7
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+- name: docker ps
+  command: docker ps
+  register: _docker_ps
+
+- debug: var=_docker_ps
+  tags:
+    - never
+    - debug
