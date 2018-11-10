@@ -7,19 +7,24 @@
   - never
   - debug
 
+- name: check docker version on travis-CI
+  when:
+  - ansible_env.TRAVIS
+  check_mode: true
+  package:
+    name: docker-ce
+    state: present
+  register: _docker_package
+
+- name: assert that the correct docker package is installed on travis-CI
+  when:
+  - ansible_env.TRAVIS
+  assert:
+    that:
+    - not _docker_package.changed
+
 - name: docker image for centos7 does exist
   docker_image:
     name: centos7
     path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
     state: present
-
-- name: get package_facts
-  check_mode: false
-  package_facts:
-
-- name: assert that the correct docker package is installed on travis-CI
-  assert:
-    that:
-    - ansible_facts.packages['docker-ce'] is defined
-  when:
-  - ansible_env.TRAVIS
