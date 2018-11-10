@@ -25,6 +25,12 @@
 
 - name: docker image for centos7 does exist
   docker_image:
-    name: centos7
+    name: local/centos7
     path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/centos7"
     state: present
+
+- name: docker container for centos7 is running
+  docker_container:
+    name: centos7
+    image: local/centos7
+    volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
