@@ -2,3 +2,8 @@
 - hosts: localhost
   roles:
     - role: mafalb.ansible_ci/tests
+
+- hosts: testnodes
+  tasks:
+    - name: debug variables
+      debug: var=hostvars[inventory_hostname]

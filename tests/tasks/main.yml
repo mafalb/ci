@@ -47,11 +47,6 @@
     name: "{{ item.container }}"
     ansible_connection: docker
 
-- name: setup
-  with_items: "{{ hostvars.localhost.groups['testnodes'] }}"
-  delegate_to: "{{ item }}"
-  setup:
-
 - name: docker ps
   command: docker ps
   register: _docker_ps
