@@ -1,0 +1,7 @@
+---
+
+dependencies:
+  - role: mafalb.ansible/control_machine
+  - role: mafalb.ansible/node
+  - role: mafalb.docker/daemon
+  - role: mafalb.docker/ansible
