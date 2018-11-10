@@ -4,4 +4,4 @@
 targeted_distributions:
   - image: local/centos7
     container: centos7
-    path: centos7
+    src: centos7

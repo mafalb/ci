@@ -27,7 +27,7 @@
   with_items: targeted_distributions
   docker_image:
     name: "{{ item.image }}"
-    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/{{ item.path }}"
+    path: "{{ ansible_env.TRAVIS_BUILD_DIR }}/files/{{ item.src }}"
     state: present
 
 - name: docker container for centos7 is running
