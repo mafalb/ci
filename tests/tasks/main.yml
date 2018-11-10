@@ -40,6 +40,17 @@
     image: "{{ item.image }}"
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
 
+- name: add containers to inventory
+  add_host:
+    groups: testnodes
+    name: "{{ item.container }}"
+    ansible_connection: docker
+
+- name: setup
+  with_items: "{{ hostvars.localhost.groups['testnodes'] }}"
+  delegate_to: "{{ item }}"
+  setup:
+
 - name: docker ps
   command: docker ps
   register: _docker_ps
