@@ -10,7 +10,7 @@
         name: mafalb.ansible_ci/tests/testcase
         tasks_from: t01
 
-    - description: check README file
+    - name: check README file
       include_role:
         name: mafalb.ansible_ci/tests/testcase
         tasks_from: t02
