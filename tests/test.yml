@@ -6,12 +6,14 @@
 
   tasks:
     - name: check LICENSE file
-      include_role: mafalb.ansible_ci/tests/testcase
-      tasks_from: t01
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t01
 
     - description: check README file
-      include_role: mafalb.ansible_ci/tests/testcase
-      tasks_from: t02
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t02
 
 - hosts: testnodes
   tasks:
