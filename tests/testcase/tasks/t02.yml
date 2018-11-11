@@ -1,0 +1,20 @@
+# vim: set ft=yaml ts=2:
+---
+
+- name: README file does exist
+  stat:
+    path: "{{ CI_BUILD_DIR }}/README.md"
+  register: _README
+
+- name: debug output for _README
+  debug: var=_README
+  tags:
+    - never
+    - debug
+
+- assert:
+    that:
+      - _README.stat.exists
+      - _README.stat.size|int > 200
+    success_msg: README file does meet the requirements
+    fail_msg: README file does not meet the requirements
