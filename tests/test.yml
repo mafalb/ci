@@ -4,12 +4,13 @@
   roles:
     - role: mafalb.ansible_ci/tests
 
-    - role: mafalb.ansible_ci/tests/testcase
-      description: check LICENSE file
+  tasks:
+    - name: check LICENSE file
+      include_role: mafalb.ansible_ci/tests/testcase
       tasks_from: t01
 
-    - role: mafalb.ansible_ci/tests/testcase
-      description: check README file
+    - description: check README file
+      role: mafalb.ansible_ci/tests/testcase
       tasks_from: t02
 
 - hosts: testnodes
