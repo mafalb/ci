@@ -3,7 +3,7 @@
 
 - name: README file does exist
   stat:
-    path: "{{ CI_BUILD_DIR }}/README.md"
+    path: "{{ ansible_env.CI_BUILD_DIR }}/README.md"
   register: _README
 
 - name: debug output for _README
