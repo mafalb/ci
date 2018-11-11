@@ -3,6 +3,9 @@
 - hosts: localhost
   roles:
     - role: mafalb.ansible_ci/tests
+    - name: check LICENSE file
+      role: mafalb.ansible_ci/testcase
+      tasks_from: t01.yml
 
 - hosts: testnodes
   tasks:
