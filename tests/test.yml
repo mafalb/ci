@@ -6,11 +6,11 @@
 
     - role: mafalb.ansible_ci/tests/testcase
       description: check LICENSE file
-      tasks_from: t01.yml
+      tasks_from: t01
 
     - role: mafalb.ansible_ci/tests/testcase
       description: check README file
-      tasks_from: t02.yml
+      tasks_from: t02
 
 - hosts: testnodes
   tasks:

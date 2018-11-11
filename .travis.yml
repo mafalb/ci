@@ -20,8 +20,6 @@ before_install:
 install:
   - ansible-playbook -b -D -t all,debug install.yml
 script:
-  - test -s LICENSE
-  - test -s README.md
   - ansible-playbook -D -t all,debug tests/test.yml
 after_script:
   - ls -lR tests/
