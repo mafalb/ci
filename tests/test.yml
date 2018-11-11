@@ -10,7 +10,7 @@
       tasks_from: t01
 
     - description: check README file
-      role: mafalb.ansible_ci/tests/testcase
+      include_role: mafalb.ansible_ci/tests/testcase
       tasks_from: t02
 
 - hosts: testnodes
