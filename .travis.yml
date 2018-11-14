@@ -15,6 +15,7 @@ before_install:
   - export CI_BUILD_DIR=$TRAVIS_BUILD_DIR
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/mafalb.ansible_ci
   - ls -lR /etc/ansible/roles
+  - ansible version
   - ansible localhost -m setup
   - ansible-playbook -b -D -t all,debug before_install.yml
 install:
