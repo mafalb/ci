@@ -16,5 +16,3 @@
     that:
       - _LICENSE.stat.exists
       - _LICENSE.stat.size|int > 100
-    success_msg: LICENSE file does meet the requirements
-    fail_msg: LICENSE file does not meet the requirements
