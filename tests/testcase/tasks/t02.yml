@@ -12,7 +12,8 @@
     - never
     - debug
 
-- assert:
+- name: "assert || README"
+  assert:
     that:
       - _README.stat.exists
       - _README.stat.size|int > 200

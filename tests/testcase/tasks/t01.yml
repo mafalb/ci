@@ -12,7 +12,8 @@
     - never
     - debug
 
-- assert:
+- name: "assert || LICENSE"
+  assert:
     that:
       - _LICENSE.stat.exists
       - _LICENSE.stat.size|int > 100
