@@ -23,4 +23,4 @@ install:
   - ansible-playbook -b -D -t all,debug install.yml
 script:
   - ansible-playbook -D -t all,debug tests/test.yml; echo $?
-  - ansible-playbook -D -t all,debug tests/test.yml | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
+  - ansible-playbook -D -t all,debug tests/test.yml | grep 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
