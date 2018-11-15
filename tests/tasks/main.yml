@@ -48,4 +48,4 @@
     name: "{{ item.container }}"
     ansible_connection: docker
 
-- command: true
+- command: echo gugu
