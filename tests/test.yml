@@ -15,6 +15,11 @@
         name: mafalb.ansible_ci/tests/testcase
         tasks_from: t02
 
+    - name: check that containers are running
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t03
+
 - hosts: testnodes
   tasks:
     - name: debug variables

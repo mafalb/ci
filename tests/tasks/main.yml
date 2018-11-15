@@ -46,12 +46,3 @@
     groups: testnodes
     name: "{{ item.container }}"
     ansible_connection: docker
-
-- name: docker ps
-  command: docker ps
-  register: _docker_ps
-
-- debug: var=_docker_ps
-  tags:
-    - never
-    - debug
