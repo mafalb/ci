@@ -25,6 +25,7 @@ script:
   - ansible-playbook -D -t all,debug tests/test.yml
   - >
     ansible-playbook -D -t all,debug tests/test.yml
-    |grep 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
+    |  (echo 'Idempotence test: fail' && exit 1)
+    |  grep 'ok=.*changed=[^0].*unreachable=.*failed='
+    && (echo 'Idempotence test: fail' && exit 1)
+    || (echo 'Idempotence test: pass' && exit 0)
