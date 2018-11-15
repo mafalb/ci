@@ -47,5 +47,3 @@
     groups: testnodes
     name: "{{ item.container }}"
     ansible_connection: docker
-
-- command: echo gugu
