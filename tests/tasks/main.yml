@@ -26,19 +26,28 @@
 - debug: msg="{{ item.image }} || {{ item.container }} || {{ item.src }}"
   with_items: "{{ targeted_distributions }}"
 
-- name: docker image for centos7 does exist
+- name: docker images does exist
   with_items: "{{ targeted_distributions }}"
   docker_image:
     name: "{{ item.image }}"
     path: "{{ ansible_env.TRAVIS_BUILD_DIR + '/files/' + item.src }}"
     state: present
 
-- name: docker container for centos7 is running
+- name: docker containers are running
   with_items: "{{ targeted_distributions }}"
   docker_container:
     name: "{{ item.container }}"
     image: "{{ item.image }}"
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
+    state: started
+
+- name: docker containers are running
+  with_items: "{{ targeted_distributions }}"
+  docker_container:
+    name: "{{ item.container }}"
+    image: "{{ item.image }}"
+    volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
+    state: started
 
 - name: add containers to inventory
   changed_when: false
