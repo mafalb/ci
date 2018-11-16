@@ -27,4 +27,4 @@ script:
   - sudo docker ps -a
   - "! grep -E 'ok=.*changed=[^0].*unreachable=.*failed=' /tmp/idempotence.tee"
 after_script:
-  - echo done
+  - sudo docker ps -a
