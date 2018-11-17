@@ -3,6 +3,6 @@
 
 - hosts: localhost
   vars:
-    - docker_assume_already_installed: false
+    - docker_assume_already_installed: true
   roles:
     - role: mafalb.ansible_ci/install
