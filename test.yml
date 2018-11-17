@@ -1,0 +1,26 @@
+
+---
+- hosts: localhost
+  roles:
+    - role: mafalb.ansible_ci/tests
+
+  tasks:
+    - name: check LICENSE file
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t01
+
+    - name: check README file
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t02
+
+    - name: check that containers are running
+      include_role:
+        name: mafalb.ansible_ci/tests/testcase
+        tasks_from: t03
+
+- hosts: testnodes
+  tasks:
+    - name: debug variables
+      debug: var=hostvars[inventory_hostname]
