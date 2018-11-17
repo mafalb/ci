@@ -40,6 +40,7 @@
     image: "{{ item.image }}"
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
     state: started
+    debug: true
 
 - name: debug docker_container
   command: docker ps
@@ -58,6 +59,7 @@
     image: "{{ item.image }}"
     volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro
     state: started
+    debug: true
 
 - name: debug docker_container
   command: docker ps
