@@ -42,6 +42,7 @@
     state: started
 
 - name: add containers to inventory
+  changed_when: false
   with_items: "{{ targeted_distributions }}"
   add_host:
     groups: testnodes
