@@ -1,9 +1,0 @@
-# vim: set ft=yaml ts=2:
----
-
-- name: docker containers are running
-  with_items: "{{ targeted_distributions }}"
-  docker_container:
-    name: "{{ item.container }}"
-    image: "{{ item.image }}"
-    volumes: /sys/fs/cgroup:/sys/fs/cgroup:ro

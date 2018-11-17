@@ -1,7 +1,0 @@
-# vim: set ft=yaml ts=2:
----
-
-targeted_distributions:
-  - image: local/centos7
-    container: centos7
-    src: centos7
