@@ -21,8 +21,6 @@ before_install:
 install:
   - ansible-playbook -b -D -t all,debug install.yml
 script:
-  - ansible-playbook -D -t all,debug tests/test.yml
-  - ansible-playbook -D -t all,debug tests/test.yml | tee /tmp/idempotence.tee
+  - ansible-playbook -D -t all,debug test.yml
+  - ansible-playbook -D -t all,debug test.yml | tee /tmp/idempotence.tee
   - "! grep -E 'ok=.*changed=[^0].*unreachable=.*failed=' /tmp/idempotence.tee"
-after_script:
-  - pip list
