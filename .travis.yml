@@ -27,6 +27,4 @@ script:
   - sudo docker ps -a
   - "! grep -E 'ok=.*changed=[^0].*unreachable=.*failed=' /tmp/idempotence.tee"
 after_script:
-  - dpkg -l
-  - sudo docker ps -a
-  - docker logs centos7
+  - pip list
