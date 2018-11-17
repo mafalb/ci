@@ -9,7 +9,7 @@
 
 - name: check docker version on travis-CI
   when:
-  - ansible_env.TRAVIS
+  - ansible_env.CI == 'travis'
   check_mode: true
   package:
     name: docker-ce
@@ -18,7 +18,7 @@
 
 - name: assert that the correct docker package is installed on travis-CI
   when:
-  - ansible_env.TRAVIS
+  - ansible_env.CI == 'travis'
   assert:
     that:
     - not _docker_package.changed
@@ -30,7 +30,7 @@
   with_items: "{{ targeted_distributions }}"
   docker_image:
     name: "{{ item.image }}"
-    path: "{{ ansible_env.TRAVIS_BUILD_DIR + '/files/' + item.src }}"
+    path: "{{ ansible_env.CI_BUILD_DIR + '/files/' + item.src }}"
     state: present
 
 - name: docker containers are running
