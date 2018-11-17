@@ -1,9 +1,9 @@
 [submodule "roles/mafalb.ansible_ci"]
 	path = roles/mafalb.ansible_ci
-	url = git@github.com:mafalb/ansible-ansible_ci
+	url = https://github.com/mafalb/ansible-ansible_ci
 [submodule "roles/mafalb.ansible"]
 	path = roles/mafalb.ansible
-	url = git@github.com:mafalb/ansible-ansible
+	url = https://github.com/mafalb/ansible-ansible
 [submodule "roles/mafalb.docker"]
 	path = roles/mafalb.docker
-	url = git@github.com:mafalb/ansible-docker
+	url = https://github.com/mafalb/ansible-docker
