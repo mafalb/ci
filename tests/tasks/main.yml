@@ -12,7 +12,7 @@
   - ansible_env.CI == 'travis'
   check_mode: true
   package:
-    name: docker.io
+    name: docker-ce
     state: present
   register: _docker_package
 
