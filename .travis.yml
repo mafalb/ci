@@ -23,9 +23,10 @@ install:
 script:
   - ansible-playbook -D -t all,debug tests/test.yml
   - sudo docker ps -a
-  - ansible-playbook -v -D -t all,debug tests/test.yml | tee /tmp/idempotence.tee
+  - ansible-playbook -vv -D -t all,debug tests/test.yml | tee /tmp/idempotence.tee
   - sudo docker ps -a
   - "! grep -E 'ok=.*changed=[^0].*unreachable=.*failed=' /tmp/idempotence.tee"
 after_script:
   - dpkg -l
   - sudo docker ps -a
+  - docker logs centos7
